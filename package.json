@@ -1,0 +1,26 @@
+{
+  "name": "asilva-innovations-hub",
+  "version": "1.0.0",
+  "description": "ASilva Innovations - Systems and Strategic Thinking, Disaster Risk Reduction-Climate Change Adaptation, and Real-Time Leadership",
+  "main": "index.html",
+  "scripts": {
+    "dev": "vite",
+    "build": "echo 'Static site - no build needed'",
+    "preview": "vite preview"
+  },
+  "keywords": [
+    "systems-thinking",
+    "disaster-risk-reduction",
+    "climate-adaptation",
+    "leadership",
+    "resilience"
+  ],
+  "author": "ASilva Innovations",
+  "license": "MIT",
+  "devDependencies": {
+    "vite": "^5.0.0"
+  },
+  "dependencies": {
+    "@supabase/supabase-js": "^2.39.0"
+  }
+}
