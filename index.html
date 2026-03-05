@@ -777,103 +777,191 @@
             }
         };
 
-        // ==========================================
-        // AUTHENTICATION
-        // ==========================================
+// ==========================================
+// CONFIGURATION
+// ==========================================
+        
+const CONFIG = {
+    // IMPORTANT: Must match your Next.js dev server port (usually 3000)
+    API_BASE_URL: window.location.hostname === 'localhost' 
+        ? 'http://localhost:3000' 
+        : window.location.origin,
+};
 
-        const auth = {
-            user: null,
-            session: null,
+// ==========================================
+// AUTHENTICATION LOGIC
+// ==========================================
 
-            async init() {
-                const { data: { session } } = await supabaseClient.auth.getSession();
-                this.session = session;
-                if (session) {
-                    await this.loadUser();
+async function handleAuth(event) {
+    event.preventDefault();
+    
+    if (state.isLoading) return;
+    
+    const email = document.getElementById('email').value.trim();
+    const password = document.getElementById('password').value;
+    const rememberMe = document.getElementById('remember-me').checked;
+    
+    // Validation
+    if (!validateEmail(email)) {
+        showError('Please enter a valid email address');
+        return;
+    }
+    
+    if (password.length < 6) {
+        showError('Password must be at least 6 characters');
+        return;
+    }
+
+    setLoading(true);
+    hideMessages();
+
+    try {
+        if (state.isLoginMode) {
+            await signIn(email, password, rememberMe);
+        } else {
+            await signUp(email, password);
+        }
+    } catch (error) {
+        console.error('Auth error:', error);
+        showError(error.message || 'An error occurred. Please try again.');
+        shakeForm();
+    } finally {
+        setLoading(false);
+    }
+}
+
+async function signIn(email, password, rememberMe) {
+    try {
+        const response = await fetch(`${CONFIG.API_BASE_URL}/auth/login`, {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+                'Accept': 'application/json'
+            },
+            credentials: 'include',
+            body: JSON.stringify({ email, password, rememberMe })
+        });
+
+        // Check if response is actually JSON
+        const contentType = response.headers.get('content-type');
+        if (!contentType || !contentType.includes('application/json')) {
+            const text = await response.text();
+            console.error('Non-JSON response:', text.substring(0, 200));
+            throw new Error('Server returned HTML instead of JSON. Check if API route exists.');
+        }
+
+        const data = await response.json();
+
+        if (!response.ok) {
+            throw new Error(data.message || `HTTP ${response.status}: ${response.statusText}`);
+        }
+
+        // Store session
+        if (rememberMe && data.session) {
+            localStorage.setItem('auth_session', JSON.stringify(data.session));
+        } else if (data.session) {
+            sessionStorage.setItem('auth_session', JSON.stringify(data.session));
+        }
+
+        showSuccess('Sign in successful! Redirecting...');
+        
+        // Redirect to dashboard
+        setTimeout(() => {
+            window.location.href = '/app/page.js';
+        }, 1000);
+        
+    } catch (error) {
+        console.error('SignIn fetch error:', error);
+        throw error;
+    }
+}
+
+async function signUp(email, password) {
+    try {
+        const response = await fetch(`${CONFIG.API_BASE_URL}/auth/callback`, {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+                'Accept': 'application/json'
+            },
+            body: JSON.stringify({ 
+                type: 'signup',
+                email, 
+                password,
+                metadata: {
+                    source: 'web_app',
+                    signup_date: new Date().toISOString()
                 }
-                this.setupAuthListener();
+            })
+        });
+
+        // Check if response is actually JSON
+        const contentType = response.headers.get('content-type');
+        if (!contentType || !contentType.includes('application/json')) {
+            const text = await response.text();
+            console.error('Non-JSON response:', text.substring(0, 200));
+            throw new Error('Server returned HTML instead of JSON. Check if API route exists.');
+        }
+
+        const data = await response.json();
+
+        if (!response.ok) {
+            throw new Error(data.message || `HTTP ${response.status}: ${response.statusText}`);
+        }
+
+        showSuccess('Account created! Please check your email to verify your account.');
+        
+        // Switch back to login mode after successful registration
+        setTimeout(() => {
+            toggleAuthMode();
+            document.getElementById('email').value = email;
+        }, 2000);
+        
+    } catch (error) {
+        console.error('SignUp fetch error:', error);
+        throw error;
+    }
+}
+
+async function handleOAuth(provider) {
+    setLoading(true);
+    
+    try {
+        const response = await fetch(`${CONFIG.API_BASE_URL}/auth/login`, {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+                'Accept': 'application/json'
             },
+            body: JSON.stringify({ provider, type: 'oauth' })
+        });
 
-            setupAuthListener() {
-                supabaseClient.auth.onAuthStateChange(async (event, session) => {
-                    this.session = session;
-                    if (event === 'SIGNED_IN') {
-                        await this.loadUser();
-                        this.closeLoginModal();
-                        showToast('Signed in successfully');
-                    } else if (event === 'SIGNED_OUT') {
-                        this.user = null;
-                        this.updateAuthUI();
-                        showToast('Signed out');
-                    }
-                });
-            },
+        // Check if response is actually JSON
+        const contentType = response.headers.get('content-type');
+        if (!contentType || !contentType.includes('application/json')) {
+            const text = await response.text();
+            console.error('Non-JSON response:', text.substring(0, 200));
+            throw new Error('Server returned HTML instead of JSON. Check if API route exists.');
+        }
 
-            async loadUser() {
-                try {
-                    const { data: { user } } = await supabaseClient.auth.getUser();
-                    if (user) {
-                        const { data: profile } = await supabaseClient
-                            .from('users')
-                            .select('*')
-                            .eq('auth_id', user.id)
-                            .single();
-                        
-                        this.user = { ...user, profile };
-                    }
-                } catch (error) {
-                    console.error('Error loading user:', error);
-                }
-                this.updateAuthUI();
-            },
+        const data = await response.json();
 
-            updateAuthUI() {
-                const authStatus = document.getElementById('auth-status');
-                if (this.user) {
-                    authStatus.innerHTML = `
-                        <div class="flex items-center space-x-3">
-                            <span class="text-sm text-slate-600 dark:text-slate-300">${this.user.profile?.full_name || this.user.email}</span>
-                            <button onclick="auth.signOut()" class="text-sm text-red-600 hover:text-red-700">Sign Out</button>
-                        </div>
-                    `;
-                } else {
-                    authStatus.innerHTML = `
-                        <button onclick="auth.showLoginModal()" class="text-sm font-medium text-slate-600 dark:text-slate-300 hover:text-brand-600">Sign In</button>
-                    `;
-                }
-            },
+        if (!response.ok) {
+            throw new Error(data.message || 'OAuth initialization failed');
+        }
 
-            showLoginModal() {
-                document.getElementById('auth-modal').classList.remove('hidden');
-            },
-
-            closeLoginModal() {
-                document.getElementById('auth-modal').classList.add('hidden');
-                document.getElementById('auth-error').classList.add('hidden');
-            },
-
-            async signIn() {
-                const email = document.getElementById('auth-email').value;
-                const password = document.getElementById('auth-password').value;
-                const errorDiv = document.getElementById('auth-error');
-
-                try {
-                    const { error } = await supabaseClient.auth.signInWithPassword({
-                        email,
-                        password
-                    });
-
-                    if (error) throw error;
-                } catch (error) {
-                    errorDiv.textContent = error.message;
-                    errorDiv.classList.remove('hidden');
-                }
-            },
-
-            async signOut() {
-                await supabaseClient.auth.signOut();
-            }
-        };
+        // Redirect to OAuth provider
+        if (data.url) {
+            window.location.href = data.url;
+        } else {
+            throw new Error('No OAuth URL returned');
+        }
+    } catch (error) {
+        console.error('OAuth error:', error);
+        showError(error.message);
+        setLoading(false);
+    }
+}
 
         // ==========================================
         // STATE MANAGEMENT
