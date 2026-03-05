@@ -1,0 +1,2247 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+    <title>ASilva Innovations | Systems Thinking for Human Flourishing</title>
+    <meta name="description" content="Enterprise-grade insights on systems thinking, personal growth, resilience, and mental well-being.">
+    
+    <!-- Resource Hints -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="dns-prefetch" href="https://asilvainnovations.com">
+    <link rel="dns-prefetch" href="https://asilvainnovations.com/assets">
+    
+    <!-- Fonts with optimized loading -->
+    <link rel="preload" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Lora:ital,wght@0,400;0,500;1,400&family=Playfair+Display:wght@400;500;600;700&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <noscript><link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Lora:ital,wght@0,400;0,500;1,400&family=Playfair+Display:wght@400;500;600;700&display=swap" rel="stylesheet"></noscript>
+    
+    <!-- Chart.js -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
+    
+    <!-- Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <style>
+        /* ============================================
+        ROOT VARIABLES & BRAND SYSTEM - ENHANCED
+        ============================================ */
+        :root {
+            /* Primary Brand Colors */
+            --brand-primary: #0A2463;
+            --brand-secondary: #0D3B66;
+            --brand-accent: #00B4D8;
+            
+            /* Category Colors */
+            --category-systems: #2E5EFF;
+            --category-growth: #40916C;
+            --category-resilience: #FF9F1C;
+            --category-wellbeing: #1D5E42;
+            --category-mental: #9C6B1B;
+            
+            /* Light Theme (Default) */
+            --color-bg-primary: #F9F5EE;
+            --color-bg-secondary: #F3EFE8;
+            --color-surface: #FFFFFF;
+            --color-surface-alt: #E8F5EE;
+            --color-text: #1C1C1E;
+            --color-text-muted: #6B6B7B;
+            --color-border: #E5E0D8;
+            --color-success: #1B4332;
+            --color-warning: #D4921E;
+            --color-error: #9C6B1B;
+            
+            /* Dark Theme Overrides */
+            [data-theme="dark"] {
+                --color-bg-primary: #0C1A12;
+                --color-bg-secondary: #142018;
+                --color-surface: #1A2E20;
+                --color-surface-alt: #142018;
+                --color-text: #E8E4DC;
+                --color-text-muted: #7FA88A;
+                --color-border: #1F3525;
+                --color-success: #40916C;
+                --color-warning: #F59E0B;
+                --color-error: #DC2626;
+            }
+            
+            /* Typography */
+            --font-display: 'Playfair Display', Georgia, serif;
+            --font-body: 'Lora', Georgia, serif;
+            --font-ui: 'Inter', system-ui, sans-serif;
+            --font-condensed: 'Roboto Condensed', system-ui, sans-serif;
+            
+            /* Spacing Scale */
+            --space-xs: 0.5rem;
+            --space-sm: 0.75rem;
+            --space-md: 1rem;
+            --space-lg: 1.5rem;
+            --space-xl: 2rem;
+            --space-2xl: 3rem;
+            --space-3xl: 4rem;
+            
+            /* Transitions */
+            --transition-fast: 150ms ease;
+            --transition-normal: 300ms ease;
+            --transition-slow: 500ms ease;
+            
+            /* Shadows */
+            --shadow-sm: 0 1px 2px rgba(0,0,0,0.05);
+            --shadow-md: 0 4px 6px rgba(0,0,0,0.07);
+            --shadow-lg: 0 10px 25px rgba(0,0,0,0.1);
+            --shadow-xl: 0 20px 40px rgba(0,0,0,0.15);
+            
+            /* Logo */
+            --logo-url: url('https://asilvainnovations.com/assets/apps/user_1097/app_13212/draft/icon/app_logo.png?1772638774');
+        }
+        
+        /* Reset & Base */
+        *, *::before, *::after { box-sizing: border-box; }
+        
+        html {
+            scroll-behavior: smooth;
+            font-size: 16px;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+        
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: var(--font-ui);
+            background: var(--color-bg-primary);
+            color: var(--color-text);
+            line-height: 1.6;
+            transition: background var(--transition-normal), color var(--transition-normal);
+        }
+        
+        h1, h2, h3, h4, h5, h6 {
+            font-family: var(--font-display);
+            font-weight: 700;
+            margin-top: 0;
+            line-height: 1.2;
+        }
+        
+        .serif { font-family: var(--font-body); }
+        .sans { font-family: var(--font-ui); }
+        .condensed { font-family: var(--font-condensed); }
+        
+        img { max-width: 100%; height: auto; display: block; }
+        
+        button {
+            font-family: inherit;
+            border: none;
+            background: none;
+            cursor: pointer;
+            -webkit-tap-highlight-color: transparent;
+        }
+        
+        input, textarea, select {
+            font-family: inherit;
+            outline: none;
+        }
+        
+        a { text-decoration: none; color: inherit; transition: var(--transition-fast); }
+        
+        /* Scrollbar */
+        ::-webkit-scrollbar { width: 8px; height: 8px; }
+        ::-webkit-scrollbar-track { background: transparent; }
+        ::-webkit-scrollbar-thumb { background: var(--brand-primary); border-radius: 10px; }
+        ::-webkit-scrollbar-thumb:hover { background: var(--brand-secondary); }
+        
+        /* Accessibility */
+        .sr-only {
+            position: absolute;
+            width: 1px;
+            height: 1px;
+            padding: 0;
+            margin: -1px;
+            overflow: hidden;
+            clip: rect(0, 0, 0, 0);
+            white-space: nowrap;
+            border: 0;
+        }
+        
+        .skip-link {
+            position: fixed;
+            top: 1rem;
+            left: 1rem;
+            z-index: 10000;
+            background: var(--brand-accent);
+            color: white;
+            padding: 1rem 1.5rem;
+            border-radius: 0.5rem;
+            font-weight: 700;
+            transform: translateY(-200%);
+            transition: transform var(--transition-fast);
+        }
+        
+        .skip-link:focus { transform: translateY(0); }
+        
+        /* Container */
+        .container {
+            max-width: 1280px;
+            margin: 0 auto;
+            padding: 0 var(--space-lg);
+        }
+        
+        /* Animations */
+        @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+        @keyframes fadeUp { 
+            from { opacity: 0; transform: translateY(20px); } 
+            to { opacity: 1; transform: translateY(0); } 
+        }
+        @keyframes slideInRight { from { transform: translateX(100%); opacity: 0; } to { transform: translateX(0); opacity: 1; } }
+        @keyframes pulse { 0%, 100% { opacity: 1; } 50% { opacity: 0.5; } }
+        @keyframes bounce { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-25%); } }
+        
+        .fade-in { animation: fadeIn 0.4s ease both; }
+        .fade-up { animation: fadeUp 0.55s ease both; }
+        .slide-in-right { animation: slideInRight 0.3s ease both; }
+        
+        /* Hover Effects */
+        .hover-lift { transition: transform var(--transition-fast), box-shadow var(--transition-fast); }
+        .hover-lift:hover { transform: translateY(-4px); box-shadow: var(--shadow-xl); }
+        
+        /* ============================================
+        NAVIGATION COMPONENT
+        ============================================ */
+        .navbar {
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            background: transparent;
+            padding: var(--space-md) 0;
+            transition: background var(--transition-normal), padding var(--transition-normal);
+        }
+        
+        .navbar.scrolled {
+            background: rgba(27, 58, 45, 0.98);
+            backdrop-filter: blur(16px);
+            padding: var(--space-sm) 0;
+            border-bottom: 1px solid rgba(255,255,255,.1);
+        }
+        
+        .nav-container {
+            max-width: 1280px;
+            margin: 0 auto;
+            padding: 0 var(--space-lg);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo-link {
+            display: flex;
+            align-items: center;
+            gap: var(--space-sm);
+            min-width: 0;
+        }
+        
+        .logo-circle {
+            width: 3rem;
+            height: 3rem;
+            background: linear-gradient(135deg, var(--brand-primary), var(--brand-accent));
+            border-radius: 50%;
+            padding: 0.375rem;
+            box-shadow: var(--shadow-md);
+            border: 3px solid white;
+            transition: transform var(--transition-fast);
+            flex-shrink: 0;
+        }
+        
+        .logo-link:hover .logo-circle { transform: scale(1.1); }
+        
+        .logo-circle-inner {
+            width: 100%;
+            height: 100%;
+            background: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 0.375rem;
+        }
+        
+        .logo-circle-inner img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+        }
+        
+        .logo-text { display: flex; flex-direction: column; min-width: 0; }
+        .logo-title { font-family: var(--font-condensed); font-size: 1.25rem; font-weight: 700; line-height: 1; }
+        .logo-tagline { font-size: 0.563rem; color: rgba(255,255,255,.7); letter-spacing: 0.25em; text-transform: uppercase; }
+        
+        .nav-menu { display: flex; gap: var(--space-md); align-items: center; }
+        .nav-link {
+            font-size: 0.875rem;
+            font-weight: 500;
+            color: rgba(255,255,255,.85);
+            padding: var(--space-xs) var(--space-sm);
+            border-radius: 0.5rem;
+            transition: all var(--transition-fast);
+            white-space: nowrap;
+        }
+        
+        .nav-link:hover { background: rgba(255,255,255,.12); }
+        
+        .btn-primary {
+            background: linear-gradient(135deg, var(--brand-primary), var(--brand-accent));
+            color: white;
+            padding: 0.625rem 1.5rem;
+            border-radius: 9999px;
+            font-weight: 700;
+            font-size: 0.875rem;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            box-shadow: var(--shadow-md);
+            transition: all var(--transition-fast);
+        }
+        
+        .btn-primary:hover { transform: scale(1.05); box-shadow: var(--shadow-lg); }
+        
+        .mobile-menu-btn {
+            display: block;
+            color: rgba(255,255,255,.9);
+            padding: var(--space-sm);
+            border-radius: 0.5rem;
+            background: rgba(15, 23, 42, 0.7);
+        }
+        
+        @media (min-width: 768px) { .mobile-menu-btn { display: none; } }
+        
+        /* ============================================
+        HERO SECTION
+        ============================================ */
+        .hero {
+            position: relative;
+            min-height: 85vh;
+            display: flex;
+            align-items: center;
+            overflow: hidden;
+        }
+        
+        .hero-bg { position: absolute; inset: 0; z-index: 0; }
+        .hero-bg img { width: 100%; height: 100%; object-fit: cover; }
+        
+        .hero-overlay {
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(to top, rgba(0,0,0,.9) 0%, rgba(0,0,0,.5) 60%, transparent 100%);
+        }
+        
+        .hero-content {
+            position: relative;
+            z-index: 10;
+            max-width: 1280px;
+            margin: 0 auto;
+            padding: var(--space-3xl) var(--space-lg);
+            text-align: center;
+        }
+        
+        .hero-badge {
+            display: inline-block;
+            padding: var(--space-xs) var(--space-md);
+            border-radius: 9999px;
+            background: rgba(0, 180, 216, 0.2);
+            border: 1px solid rgba(0, 180, 216, 0.4);
+            color: var(--brand-accent);
+            font-size: 0.875rem;
+            font-weight: 600;
+            letter-spacing: 0.06em;
+            text-transform: uppercase;
+            margin-bottom: var(--space-lg);
+            backdrop-filter: blur(4px);
+        }
+        
+        .hero-title {
+            font-size: clamp(2rem, 5vw, 3.5rem);
+            font-weight: 800;
+            color: white;
+            margin-bottom: var(--space-lg);
+            line-height: 1.1;
+        }
+        
+        .hero-excerpt {
+            font-size: 1.25rem;
+            color: rgba(255,255,255,.9);
+            max-width: 680px;
+            margin: 0 auto var(--space-lg);
+            font-family: var(--font-body);
+        }
+        
+        .hero-actions { display: flex; gap: var(--space-md); justify-content: center; flex-wrap: wrap; }
+        
+        /* ============================================
+        BLOG POST GRID
+        ============================================ */
+        .posts-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
+            gap: var(--space-xl);
+            padding: var(--space-3xl) 0;
+        }
+        
+        .post-card {
+            background: var(--color-surface);
+            border-radius: 1rem;
+            overflow: hidden;
+            border: 1px solid var(--color-border);
+            transition: all var(--transition-normal);
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .post-card:hover {
+            transform: translateY(-8px);
+            box-shadow: var(--shadow-xl);
+        }
+        
+        .post-image-wrapper { position: relative; aspect-ratio: 16/9; overflow: hidden; }
+        .post-image { width: 100%; height: 100%; object-fit: cover; transition: transform var(--transition-slow); }
+        .post-card:hover .post-image { transform: scale(1.05); }
+        
+        .post-badge {
+            position: absolute;
+            top: var(--space-md);
+            left: var(--space-md);
+            padding: 0.375rem 0.75rem;
+            border-radius: 9999px;
+            font-size: 0.75rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            z-index: 5;
+        }
+        
+        .badge-systems { background: var(--category-systems); color: white; }
+        .badge-growth { background: var(--category-growth); color: white; }
+        .badge-resilience { background: var(--category-resilience); color: white; }
+        .badge-wellbeing { background: var(--category-wellbeing); color: white; }
+        .badge-mental { background: var(--category-mental); color: white; }
+        
+        .post-content { padding: var(--space-lg); flex: 1; display: flex; flex-direction: column; }
+        
+        .post-title {
+            font-size: 1.375rem;
+            font-weight: 700;
+            color: var(--color-text);
+            margin-bottom: var(--space-sm);
+            line-height: 1.3;
+        }
+        
+        .post-meta {
+            display: flex;
+            align-items: center;
+            gap: var(--space-md);
+            font-size: 0.813rem;
+            color: var(--color-text-muted);
+            margin-top: auto;
+            padding-top: var(--space-md);
+            border-top: 1px solid var(--color-border);
+        }
+        
+        /* ============================================
+        ARTICLE VIEWER
+        ============================================ */
+        .article-viewer {
+            position: relative;
+            min-height: 100vh;
+            background: var(--color-bg-primary);
+        }
+        
+        .reading-progress-bar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            height: 3px;
+            background: var(--brand-primary);
+            z-index: 1000;
+            transition: width var(--transition-fast);
+        }
+        
+        .article-hero-image {
+            position: relative;
+            height: 50vh;
+            min-height: 400px;
+            overflow: hidden;
+        }
+        
+        .article-hero-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        
+        .article-hero-overlay {
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(to bottom, rgba(0,0,0,.4) 0%, rgba(0,0,0,.8) 100%);
+        }
+        
+        .article-nav-header {
+            position: sticky;
+            top: 64px;
+            z-index: 50;
+            background: var(--color-surface);
+            border-bottom: 1px solid var(--color-border);
+            padding: var(--space-sm) var(--space-lg);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .article-reader-controls {
+            display: flex;
+            gap: var(--space-md);
+            align-items: center;
+            flex-wrap: wrap;
+        }
+        
+        .article-content {
+            max-width: 800px;
+            margin: var(--space-3xl) auto var(--space-3xl);
+            padding: 0 var(--space-lg);
+        }
+        
+        .article-body {
+            font-family: var(--font-body);
+            font-size: 1.125rem;
+            line-height: 1.8;
+            color: var(--color-text);
+        }
+        
+        .article-body p { margin-bottom: var(--space-lg); }
+        .article-body h2 { font-size: 1.75rem; margin-top: var(--space-2xl); margin-bottom: var(--space-md); }
+        .article-body blockquote {
+            border-left: 4px solid var(--brand-primary);
+            padding-left: var(--space-lg);
+            margin: var(--space-xl) 0;
+            font-style: italic;
+            color: var(--color-text-muted);
+        }
+        
+        .related-posts {
+            background: var(--color-surface);
+            border-top: 1px solid var(--color-border);
+            padding: var(--space-3xl) var(--space-lg);
+        }
+        
+        /* ============================================
+        ADMIN DASHBOARD LAYOUT
+        ============================================ */
+        .admin-layout {
+            display: flex;
+            height: 100vh;
+            overflow: hidden;
+            background: var(--color-bg-primary);
+        }
+        
+        .admin-sidebar {
+            width: 260px;
+            background: #0F2318;
+            display: flex;
+            flex-direction: column;
+            border-right: 1px solid rgba(255,255,255,.1);
+        }
+        
+        .admin-nav-item {
+            display: flex;
+            align-items: center;
+            gap: var(--space-sm);
+            padding: var(--space-sm) var(--space-md);
+            border-radius: 0.5rem;
+            color: rgba(255,255,255,.7);
+            font-size: 0.875rem;
+            transition: all var(--transition-fast);
+        }
+        
+        .admin-nav-item:hover { background: rgba(255,255,255,.1); }
+        .admin-nav-item.active { background: rgba(45,106,79,.35); color: white; border: 1px solid rgba(45,106,79,.5); }
+        
+        .admin-main { flex: 1; overflow-y: auto; }
+        
+        .admin-panel { padding: var(--space-xl); }
+        
+        .admin-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: var(--space-xl);
+            padding-bottom: var(--space-md);
+            border-bottom: 1px solid var(--color-border);
+        }
+        
+        /* ============================================
+        DASHBOARD CARDS & STATS
+        ============================================ */
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+            gap: var(--space-lg);
+            margin-bottom: var(--space-xl);
+        }
+        
+        .stat-card {
+            background: var(--color-surface);
+            border-radius: 0.75rem;
+            padding: var(--space-lg);
+            border: 1px solid var(--color-border);
+        }
+        
+        .stat-value { font-size: 2rem; font-weight: 700; color: var(--brand-primary); margin-bottom: 0.25rem; }
+        .stat-label { font-size: 0.875rem; color: var(--color-text-muted); text-transform: uppercase; letter-spacing: 0.05em; }
+        .stat-trend { font-size: 0.75rem; color: var(--color-success); margin-top: 0.25rem; }
+        
+        /* ============================================
+        TABLES
+        ============================================ */
+        .table-container {
+            background: var(--color-surface);
+            border-radius: 0.75rem;
+            border: 1px solid var(--color-border);
+            overflow: hidden;
+        }
+        
+        .data-table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 0.875rem;
+        }
+        
+        .data-table th,
+        .data-table td {
+            padding: var(--space-sm) var(--space-md);
+            text-align: left;
+            border-bottom: 1px solid var(--color-border);
+        }
+        
+        .data-table th {
+            font-weight: 700;
+            text-transform: uppercase;
+            font-size: 0.75rem;
+            letter-spacing: 0.05em;
+            color: var(--color-text-muted);
+            background: var(--color-bg-secondary);
+        }
+        
+        .data-table tr:hover { background: var(--color-bg-secondary); }
+        
+        /* ============================================
+        FORMS & INPUTS
+        ============================================ */
+        .form-group { margin-bottom: var(--space-md); }
+        
+        .form-label {
+            display: block;
+            font-size: 0.875rem;
+            font-weight: 600;
+            color: var(--color-text);
+            margin-bottom: var(--space-xs);
+        }
+        
+        .form-input,
+        .form-textarea,
+        .form-select {
+            width: 100%;
+            padding: 0.75rem 1rem;
+            border: 1px solid var(--color-border);
+            border-radius: 0.5rem;
+            background: var(--color-surface);
+            color: var(--color-text);
+            font-size: 0.875rem;
+            transition: border-color var(--transition-fast);
+        }
+        
+        .form-input:focus,
+        .form-textarea:focus,
+        .form-select:focus {
+            border-color: var(--brand-accent);
+            box-shadow: 0 0 0 3px rgba(0, 180, 216, 0.1);
+        }
+        
+        .form-textarea { resize: vertical; min-height: 120px; font-family: var(--font-body); }
+        
+        /* ============================================
+        BLOCK EDITOR
+        ============================================ */
+        .block-editor-container {
+            background: var(--color-surface);
+            border: 1px solid var(--color-border);
+            border-radius: 0.75rem;
+            overflow: hidden;
+        }
+        
+        .editor-toolbar {
+            padding: var(--space-md);
+            border-bottom: 1px solid var(--color-border);
+            display: flex;
+            gap: var(--space-sm);
+            flex-wrap: wrap;
+            background: var(--color-bg-secondary);
+        }
+        
+        .editor-tool-btn {
+            padding: 0.5rem 0.75rem;
+            border: 1px solid var(--color-border);
+            border-radius: 0.375rem;
+            font-size: 0.875rem;
+            display: flex;
+            align-items: center;
+            gap: 0.375rem;
+            transition: all var(--transition-fast);
+        }
+        
+        .editor-tool-btn:hover { background: var(--color-bg-primary); }
+        .editor-tool-btn.active { background: var(--brand-primary); color: white; border-color: var(--brand-primary); }
+        
+        .editor-canvas { padding: var(--space-xl); min-height: 400px; }
+        
+        .editor-block {
+            padding: var(--space-md);
+            border: 1px solid transparent;
+            border-radius: 0.375rem;
+            margin-bottom: var(--space-sm);
+            position: relative;
+            transition: all var(--transition-fast);
+        }
+        
+        .editor-block:hover { border-color: var(--color-border); }
+        .editor-block.selected { border-color: var(--brand-primary); box-shadow: var(--shadow-md); }
+        
+        .block-type-selector {
+            position: absolute;
+            top: var(--space-xs);
+            right: var(--space-xs);
+            opacity: 0;
+            transition: opacity var(--transition-fast);
+        }
+        
+        .editor-block:hover .block-type-selector { opacity: 1; }
+        
+        .block-placeholder {
+            color: var(--color-text-muted);
+            font-family: var(--font-ui);
+            font-size: 0.875rem;
+        }
+        
+        /* ============================================
+        NOTIFICATIONS & TOASTS
+        ============================================ */
+        .toast-container {
+            position: fixed;
+            bottom: var(--space-lg);
+            right: var(--space-lg);
+            z-index: 10000;
+            display: flex;
+            flex-direction: column;
+            gap: var(--space-sm);
+        }
+        
+        .toast {
+            background: var(--color-text);
+            color: white;
+            padding: var(--space-md) var(--space-lg);
+            border-radius: 0.5rem;
+            display: flex;
+            align-items: center;
+            gap: var(--space-sm);
+            animation: slideInRight 0.3s ease;
+            box-shadow: var(--shadow-lg);
+            min-width: 300px;
+        }
+        
+        .toast.success { background: var(--color-success); }
+        .toast.error { background: var(--color-error); }
+        .toast.warning { background: var(--color-warning); }
+        
+        /* ============================================
+        MODAL
+        ============================================ */
+        .modal-overlay {
+            position: fixed;
+            inset: 0;
+            background: rgba(0, 0, 0, 0.7);
+            backdrop-filter: blur(4px);
+            z-index: 9999;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            opacity: 0;
+            visibility: hidden;
+            transition: all var(--transition-fast);
+        }
+        
+        .modal-overlay.open { opacity: 1; visibility: visible; }
+        
+        .modal-content {
+            background: var(--color-surface);
+            border-radius: 1rem;
+            padding: var(--space-xl);
+            max-width: 680px;
+            width: 90%;
+            max-height: 90vh;
+            overflow-y: auto;
+            transform: scale(0.95);
+            transition: transform var(--transition-fast);
+        }
+        
+        .modal-overlay.open .modal-content { transform: scale(1); }
+        
+        /* ============================================
+        SEARCH PANEL
+        ============================================ */
+        .search-panel {
+            position: fixed;
+            top: 0;
+            right: 0;
+            width: 100%;
+            max-width: 500px;
+            height: 100vh;
+            background: var(--color-surface);
+            z-index: 9000;
+            transform: translateX(100%);
+            transition: transform var(--transition-slow);
+            box-shadow: var(--shadow-xl);
+            padding: var(--space-xl);
+        }
+        
+        .search-panel.open { transform: translateX(0); }
+        
+        .search-results {
+            margin-top: var(--space-lg);
+            max-height: calc(100vh - 200px);
+            overflow-y: auto;
+        }
+        
+        .search-result-item {
+            padding: var(--space-md);
+            border-bottom: 1px solid var(--color-border);
+            cursor: pointer;
+            transition: background var(--transition-fast);
+        }
+        
+        .search-result-item:hover { background: var(--color-bg-secondary); }
+        
+        .highlight {
+            background: rgba(212, 146, 30, 0.2);
+            padding: 0 2px;
+            border-radius: 2px;
+        }
+        
+        /* ============================================
+        LOADING STATES
+        ============================================ */
+        .loading-overlay {
+            position: fixed;
+            inset: 0;
+            background: rgba(12, 26, 18, 0.95);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 15000;
+            transition: opacity 0.5s, visibility 0.5s;
+        }
+        
+        .loading-overlay.hidden { opacity: 0; visibility: hidden; }
+        
+        .loading-spinner {
+            width: 60px;
+            height: 60px;
+            border: 4px solid rgba(0, 180, 216, 0.2);
+            border-top-color: var(--brand-accent);
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+        }
+        
+        @keyframes spin { to { transform: rotate(360deg); } }
+        
+        /* ============================================
+        RESPONSIVE DESIGN
+        ============================================ */
+        @media (max-width: 1024px) {
+            .admin-sidebar { width: 80px; }
+            .admin-nav-item span, .admin-logo-text { display: none; }
+            .admin-logo-text-only { display: block !important; }
+            .posts-grid { grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); }
+        }
+        
+        @media (max-width: 768px) {
+            .posts-grid { grid-template-columns: 1fr; }
+            .article-reader-controls { flex-direction: column; align-items: flex-start; }
+            .admin-layout { flex-direction: column; }
+            .admin-main { overflow-x: auto; }
+        }
+    </style>
+</head>
+<body data-theme="light">
+    <!-- Skip Link -->
+    <a href="#main-content" class="skip-link">Skip to main content</a>
+    
+    <!-- Loading Overlay -->
+    <div id="loadingOverlay" class="loading-overlay">
+        <div class="loading-spinner" aria-hidden="true"></div>
+    </div>
+    
+    <!-- Main App Container -->
+    <div id="app">
+        <!-- Navigation Component Will Be Here -->
+    </div>
+    
+    <!-- Toast Notifications -->
+    <div id="toastContainer" class="toast-container"></div>
+    
+    <!-- Application JavaScript -->
+    <script>
+        // ============================================
+        // STATE MANAGEMENT
+        // ============================================
+        const appState = {
+            view: 'home',
+            selectedPost: null,
+            darkMode: false,
+            fontScale: 1,
+            fontSize: 17,
+            currentCategory: 'all',
+            searchQuery: '',
+            showSearch: false,
+            isAdmin: false,
+            activeTab: 'dashboard',
+            editingPost: null,
+            posts: [],
+            subscribers: [],
+            comments: [],
+            notifications: []
+        };
+
+        // ============================================
+        // DATA CONSTANTS
+        // ============================================
+        const POSTS_DATA = [
+            {
+                id: 1,
+                title: "Building Antifragile Systems: How Organizations Grow Stronger Under Pressure",
+                slug: "building-antifragile-systems",
+                excerpt: "Discover how biological systems handle chaos and uncertainty, and how we can apply these principles to build organizations that thrive because of disruption.",
+                category: "systems",
+                tags: ["Antifragility", "Systems Thinking", "Organizational Design"],
+                publishedAt: "2025-01-15T10:00:00Z",
+                readTime: 8,
+                views: 4823,
+                status: "published",
+                image: "https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=1200&q=80",
+                author: "A. Silva",
+                seo: {
+                    metaTitle: "Building Antifragile Systems | ASilva Innovations",
+                    metaDescription: "Learn how to build organizations that grow stronger under pressure using antifragility principles."
+                },
+                content: [
+                    { type: "paragraph", text: "In the mid-1990s, engineers designing redundant systems for critical infrastructure faced a paradox that would later become central to modern organizational theory: the very measures designed to protect a system from failure often made that system more brittle, not less." },
+                    { type: "heading", text: "The Nature of Antifragility" },
+                    { type: "paragraph", text: "Nassim Nicholas Taleb coined the term antifragile to describe systems that don't merely resist shocks, but actively benefit from them. The human immune system is the canonical example — expose it to pathogens and it grows stronger." },
+                    { type: "quote", text: "Wind extinguishes a candle and energizes fire. Likewise with randomness, uncertainty, chaos: you want to use them, not hide from them. You want to be the fire and wish for the wind. — Nassim Taleb" },
+                    { type: "heading", text: "Applying This to Organizations" },
+                    { type: "paragraph", text: "When we apply antifragile thinking to organizational design, the implications are profound. Most organizations obsessively optimize for efficiency and predictability, creating the illusion of control while simultaneously increasing systemic fragility." }
+                ],
+                relatedPosts: [2, 6]
+            },
+            {
+                id: 2,
+                title: "The Compound Effect: Why Small Daily Habits Outperform Drastic Life Changes",
+                slug: "compound-effect-daily-habits",
+                excerpt: "Science confirms what elite performers have known for decades: marginal gains compound into extraordinary outcomes through consistent action over time.",
+                category: "growth",
+                tags: ["Habits", "Productivity", "Behavior Change"],
+                publishedAt: "2025-01-28T10:00:00Z",
+                readTime: 6,
+                views: 6241,
+                status: "published",
+                image: "https://images.unsplash.com/photo-1499750310107-5fef28a66643?w=1200&q=80",
+                author: "A. Silva",
+                content: []
+            },
+            {
+                id: 3,
+                title: "Radical Acceptance: The Mental Health Practice That Changes Everything",
+                slug: "radical-acceptance-mental-health",
+                excerpt: "Borrowed from Dialectical Behavior Therapy, radical acceptance isn't about giving up — it's about seeing reality clearly so you can act on it with full power.",
+                category: "mental",
+                tags: ["DBT", "Acceptance", "Therapy", "Mindfulness"],
+                publishedAt: "2025-02-05T10:00:00Z",
+                readTime: 7,
+                views: 5102,
+                status: "published",
+                image: "https://images.unsplash.com/photo-1506126613408-eca07ce68773?w=1200&q=80",
+                author: "A. Silva",
+                content: []
+            },
+            {
+                id: 4,
+                title: "Post-Traumatic Growth: When Adversity Becomes Your Greatest Teacher",
+                slug: "post-traumatic-growth",
+                excerpt: "Resilience isn't just bouncing back — for many people, surviving profound difficulty leads to measurable improvement in psychological functioning and relationships.",
+                category: "resilience",
+                tags: ["Trauma", "Growth", "Psychology", "Post-Traumatic Growth"],
+                publishedAt: "2025-02-12T10:00:00Z",
+                readTime: 10,
+                views: 3889,
+                status: "published",
+                image: "https://images.unsplash.com/photo-1518531933037-91b2f5f229cc?w=1200&q=80",
+                author: "A. Silva",
+                content: []
+            },
+            {
+                id: 5,
+                title: "Designing Your Environment for Peak Well-Being: A Systems Approach",
+                slug: "designing-environment-wellbeing",
+                excerpt: "Your environment shapes your behavior more powerfully than your willpower does. Learn how to architect spaces that make healthy choices automatic.",
+                category: "wellbeing",
+                tags: ["Environment Design", "Nudge Theory", "Behavioral Science"],
+                publishedAt: "2025-02-20T10:00:00Z",
+                readTime: 9,
+                views: 4156,
+                status: "published",
+                image: "https://images.unsplash.com/photo-1463936575829-25148e1db1b8?w=1200&q=80",
+                author: "A. Silva",
+                content: []
+            },
+            {
+                id: 6,
+                title: "Second-Order Thinking: The Cognitive Upgrade That Transforms Decision-Making",
+                slug: "second-order-thinking",
+                excerpt: "Most people think about immediate consequences. Elite decision-makers think about the consequences of consequences using systematic frameworks.",
+                category: "systems",
+                tags: ["Mental Models", "Decision Making", "Second-Order Thinking"],
+                publishedAt: "2025-03-01T10:00:00Z",
+                readTime: 7,
+                views: 7234,
+                status: "published",
+                image: "https://images.unsplash.com/photo-1534278854415-1c5d2e04dc6b?w=1200&q=80",
+                author: "A. Silva",
+                content: []
+            },
+            {
+                id: 7,
+                title: "The Nervous System Reset: Evidence-Based Practices for Stress Recovery",
+                slug: "nervous-system-reset",
+                excerpt: "Chronic stress reshapes the architecture of your brain. But neuroplasticity works both ways — science-backed practices can help restore your baseline.",
+                category: "wellbeing",
+                tags: ["Nervous System", "Stress", "Recovery", "Neuroscience"],
+                publishedAt: "2025-03-08T10:00:00Z",
+                readTime: 11,
+                views: 5567,
+                status: "published",
+                image: "https://images.unsplash.com/photo-144745201602-7090c7ab2db3?w=1200&q=80",
+                author: "A. Silva",
+                content: []
+            },
+            {
+                id: 8,
+                title: "Identity-Based Growth: Stop Setting Goals, Start Building Who You Are",
+                slug: "identity-based-growth",
+                excerpt: "Goal-setting fails because it focuses on achievements. Identity-based approaches ask a deeper question: who do you want to become?",
+                category: "growth",
+                tags: ["Identity", "Behavior Change", "Self-Development"],
+                publishedAt: "2025-03-15T10:00:00Z",
+                readTime: 8,
+                views: 6890,
+                status: "published",
+                image: "https://images.unsplash.com/photo-1434494878577-86c23bcb06b9?w=1200&q=80",
+                author: "A. Silva",
+                content: []
+            },
+            {
+                id: 9,
+                title: "Digital Detox Protocol: Rebuilding Attention in the Age of Distraction",
+                slug: "digital-detox-protocol",
+                excerpt: "Your attention is the most valuable resource you own. Technology companies have built billion-dollar industries on capturing it.",
+                category: "mental",
+                tags: ["Digital Wellness", "Attention", "Focus", "Technology"],
+                publishedAt: "2025-03-22T10:00:00Z",
+                readTime: 9,
+                views: 4421,
+                status: "draft",
+                image: "https://images.unsplash.com/photo-145539052262-044cdead277a?w=1200&q=80",
+                author: "A. Silva",
+                content: []
+            }
+        ];
+
+        const SUBSCRIBERS = [
+            { id: 1, email: "maria.santos@example.com", subscribedAt: "2025-01-15", status: "active", source: "newsletter_signup" },
+            { id: 2, email: "john.doe@example.com", subscribedAt: "2025-02-01", status: "active", source: "cta_block" },
+            { id: 3, email: "sarah.chen@example.com", subscribedAt: "2025-02-20", status: "subscribed", source: "blog_sidebar" },
+            { id: 4, email: "michael.brown@example.com", subscribedAt: "2025-03-05", status: "unsubscribed", source: "newsletter" },
+            { id: 5, email: "lisa.wong@example.com", subscribedAt: "2025-03-12", status: "active", source: "webinar_registration" },
+            { id: 6, email: "david.garcia@example.com", subscribedAt: "2025-03-18", status: "active", source: "ebook_download" },
+            { id: 7, email: "jennifer.lee@example.com", subscribedAt: "2025-03-20", status: "pending", source: "landing_page" },
+            { id: 8, email: "robert.kim@example.com", subscribedAt: "2025-03-22", status: "active", source: "podcast_show_notes" }
+        ];
+
+        const COMMENTS_DATA = [
+            { id: 1, postId: 1, author: "Emily Chen", email: "emily@example.com", text: "This article completely changed how I approach organizational design!", date: "2025-01-16T14:30:00Z", status: "approved", likes: 24 },
+            { id: 2, postId: 2, author: "Marcus Johnson", email: "marcus@example.com", text: "I've been applying the compound effect for 3 months now. Small changes really do add up!", date: "2025-01-29T09:15:00Z", status: "approved", likes: 42 },
+            { id: 3, postId: 3, author: "Sarah Mitchell", email: "sarah@example.com", text: "Could you expand on the practical exercises for radical acceptance?", date: "2025-02-06T16:45:00Z", status: "pending", likes: 8 },
+            { id: 4, postId: 1, author: "Spam Bot", email: "spam@spammer.com", text: "Great post! Check out my website for free crypto tips!!!", date: "2025-02-08T03:22:00Z", status: "spam", likes: 0 },
+            { id: 5, postId: 6, author: "David Park", email: "david.park@example.com", text: "Second-order thinking has saved me from countless bad decisions. Highly recommend this framework.", date: "2025-03-02T11:00:00Z", status: "approved", likes: 35 }
+        ];
+
+        const USERS = [
+            { id: 1, name: "A. Silva", email: "admin@asilvainnovations.com", role: "Administrator", status: "active", avatar: "https://i.pravatar.cc/150?u=admin" },
+            { id: 2, name: "Alvin Silva", email: "alvin.silva@cognitioplus.com", role: "Editor", status: "active", avatar: "https://i.pravatar.cc/150?u=editor" },
+            { id: 3, name: "Jordan M.", email: "jordan.m@asilvainnovations.com", role: "Author", status: "active", avatar: "https://i.pravatar.cc/150?u=author" },
+            { id: 4, name: "Sam Rivera", email: "sam.rivera@external.com", role: "Contributor", status: "active", avatar: "https://i.pravatar.cc/150?u=contributor" },
+            { id: 5, name: "Casey T.", email: "casey.t@external.com", role: "Contributor", status: "pending", avatar: "https://i.pravatar.cc/150?u=pending" }
+        ];
+
+        const ANALYTICS_DATA = {
+            summary: {
+                totalViews: 54323,
+                uniqueVisitors: 32480,
+                subscribers: 2847,
+                avgReadTime: "6m 42s",
+                conversionRate: "3.8%"
+            },
+            pageviews: [
+                { date: "Jan 1", views: 1200, visitors: 890 },
+                { date: "Jan 8", views: 1850, visitors: 1230 },
+                { date: "Jan 15", views: 2400, visitors: 1680 },
+                { date: "Jan 22", views: 2100, visitors: 1450 },
+                { date: "Jan 29", views: 3200, visitors: 2100 },
+                { date: "Feb 5", views: 3800, visitors: 2600 },
+                { date: "Feb 12", views: 4200, visitors: 2900 },
+                { date: "Feb 19", views: 3900, visitors: 2700 },
+                { date: "Feb 26", views: 5100, visitors: 3400 },
+                { date: "Mar 5", views: 5800, visitors: 3900 },
+                { date: "Mar 12", views: 6200, visitors: 4100 },
+                { date: "Mar 19", views: 7100, visitors: 4800 }
+            ],
+            trafficSources: [
+                { source: "Organic Search", pct: 62, color: "#2D6A4F" },
+                { source: "Direct", pct: 18, color: "#40916C" },
+                { source: "Social Media", pct: 12, color: "#74C69D" },
+                { source: "Email", pct: 5, color: "#D4921E" },
+                { source: "Referral", pct: 3, color: "#1B4332" }
+            ]
+        };
+
+        const VERSION_HISTORY = [
+            { id: 1, timestamp: "2025-01-14T18:30:00Z", author: "A. Silva", changes: "Initial draft", notes: "First version created" },
+            { id: 2, timestamp: "2025-01-15T09:15:00Z", author: "A. Silva", changes: "Added second section", notes: "Expanded analysis on organizational application" },
+            { id: 3, timestamp: "2025-01-15T16:45:00Z", author: "A. Silva", changes: "Added quote and conclusion", notes: "Finalized content and formatting" }
+        ];
+
+        // ============================================
+        // HELPER FUNCTIONS
+        // ============================================
+        function formatDate(dateString) {
+            return new Date(dateString).toLocaleDateString('en-US', {
+                year: 'numeric',
+                month: 'long',
+                day: 'numeric'
+            });
+        }
+
+        function formatRelativeTime(dateString) {
+            const now = new Date();
+            const then = new Date(dateString);
+            const diffInSeconds = Math.floor((now - then) / 1000);
+            
+            if (diffInSeconds < 60) return 'Just now';
+            if (diffInSeconds < 3600) return `${Math.floor(diffInSeconds / 60)} minutes ago`;
+            if (diffInSeconds < 86400) return `${Math.floor(diffInSeconds / 3600)} hours ago`;
+            if (diffInSeconds < 604800) return `${Math.floor(diffInSeconds / 86400)} days ago`;
+            
+            return formatDate(dateString);
+        }
+
+        function showToast(message, type = 'info') {
+            const container = document.getElementById('toastContainer');
+            const toast = document.createElement('div');
+            toast.className = `toast ${type}`;
+            
+            const iconMap = {
+                success: 'fa-check-circle',
+                error: 'fa-times-circle',
+                warning: 'fa-exclamation-triangle',
+                info: 'fa-info-circle'
+            };
+            
+            toast.innerHTML = `
+                <i class="fas ${iconMap[type]}"></i>
+                <span>${message}</span>
+            `;
+            
+            container.appendChild(toast);
+            
+            setTimeout(() => {
+                toast.style.animation = 'slideInRight 0.3s ease reverse';
+                setTimeout(() => {
+                    if (container.contains(toast)) {
+                        container.removeChild(toast);
+                    }
+                }, 300);
+            }, 3000);
+        }
+
+        // ============================================
+        // CORE RENDERING FUNCTIONS
+        // ============================================
+        function renderApp() {
+            const app = document.getElementById('app');
+            
+            switch(appState.view) {
+                case 'home':
+                    renderHome(app);
+                    break;
+                case 'article':
+                    renderArticle(app);
+                    break;
+                case 'admin':
+                    if (isAdminAccess()) {
+                        renderAdminDashboard(app);
+                    } else {
+                        renderAuthModal(app);
+                    }
+                    break;
+                default:
+                    renderHome(app);
+            }
+            
+            // Update nav state
+            updateNavigation();
+        }
+
+        function renderHome(container) {
+            appState.view = 'home';
+            const filteredPosts = filterPosts(POSTS_DATA);
+            const featuredPost = filteredPosts.find(p => p.id === 1) || filteredPosts[0];
+            const regularPosts = filteredPosts.filter(p => p.id !== featuredPost?.id && p.status === 'published');
+            
+            container.innerHTML = `
+                ${renderNavigation()}
+                
+                <!-- Hero Section -->
+                <section class="hero fade-up">
+                    <div class="hero-bg">
+                        <img src="${featuredPost.image}" alt="${featuredPost.title}">
+                        <div class="hero-overlay"></div>
+                    </div>
+                    <div class="hero-content">
+                        <span class="hero-badge">${getCategoryName(featuredPost.category)}</span>
+                        <h1 class="hero-title fade-up">${featuredPost.title}</h1>
+                        <p class="hero-excerpt">${featuredPost.excerpt}</p>
+                        <div class="hero-actions fade-up">
+                            <button onclick="openArticle(${featuredPost.id})" class="btn-primary">
+                                Read Article <i class="fas fa-arrow-right"></i>
+                            </button>
+                        </div>
+                    </div>
+                </section>
+                
+                <!-- Posts Grid -->
+                <div class="container">
+                    <div style="display: flex; justify-content: space-between; align-items: center; margin: 48px 0;">
+                        <h2 class="serif" style="font-size: 2rem; font-weight: 700;">Latest Articles</h2>
+                        <select onchange="sortArticles(this.value)" style="padding: 0.5rem 1rem; border: 1px solid var(--color-border); border-radius: 0.5rem; background: var(--color-surface); color: var(--color-text);">
+                            <option value="newest">Newest First</option>
+                            <option value="oldest">Oldest First</option>
+                            <option value="popular">Most Viewed</option>
+                            <option value="comments">Most Discussed</option>
+                        </select>
+                    </div>
+                    
+                    <div class="posts-grid">
+                        ${regularPosts.map(post => renderPostCard(post)).join('')}
+                    </div>
+                    
+                    {/* Categories Filter */}
+                    <div style="margin: 64px 0; display: flex; gap: 0.5rem; overflow-x: auto; padding-bottom: 8px;">
+                        ${['all', 'systems', 'growth', 'resilience', 'wellbeing', 'mental'].map(catId => `
+                            <button 
+                                onclick="filterByCategory('${catId}')"
+                                class="${appState.currentCategory === catId ? 'active' : ''}"
+                                style="padding: 0.5rem 1rem; border: 1px solid var(--color-border); border-radius: 9999px; font-size: 0.875rem; font-weight: 500; white-space: nowrap; cursor: pointer; background: ${appState.currentCategory === catId ? '#2D6A4F' : 'var(--color-surface)'}; color: ${appState.currentCategory === catId ? 'white' : 'var(--color-text-muted)'};"
+                            >
+                                ${catId === 'all' ? 'All Topics' : getCategoryName(catId)}
+                            </button>
+                        `).join('')}
+                    </div>
+                </div>
+            `;
+        }
+
+        function renderPostCard(post) {
+            const badgeClass = `badge-${post.category}`;
+            return `
+                <article class="post-card hover-lift fade-up">
+                    <div class="post-image-wrapper">
+                        <img src="${post.image}" alt="${post.title}" class="post-image">
+                        <span class="post-badge ${badgeClass}">${getCategoryName(post.category)}</span>
+                    </div>
+                    <div class="post-content">
+                        <h3 class="post-title">${post.title}</h3>
+                        <p style="color: var(--color-text-muted); font-size: 0.938rem; line-height: 1.6; margin-bottom: 1rem;">${post.excerpt}</p>
+                        <div class="post-meta">
+                            <span><i class="far fa-clock"></i> ${post.readTime} min read</span>
+                            <span><i class="far fa-eye"></i> ${post.views.toLocaleString()}</span>
+                            <span>${formatDate(post.publishedAt)}</span>
+                        </div>
+                    </div>
+                </article>
+            `;
+        }
+
+        function renderArticle(container) {
+            const post = POSTS_DATA.find(p => p.id === appState.selectedPost);
+            if (!post) return;
+            
+            const relatedPosts = POSTS_DATA.filter(p => post.relatedPosts?.includes(p.id));
+            
+            container.innerHTML = `
+                <div class="article-viewer">
+                    ${renderNavigation(true)}
+                    <div class="reading-progress-bar" id="readingProgressBar"></div>
+                    
+                    <div class="article-hero-image">
+                        <img src="${post.image}" alt="${post.title}">
+                        <div class="article-hero-overlay"></div>
+                    </div>
+                    
+                    <div class="article-nav-header">
+                        <button onclick="goHome()" style="display: flex; align-items: center; gap: 0.5rem; font-size: 0.875rem; color: var(--color-text);">
+                            <i class="fas fa-arrow-left"></i> Back to Articles
+                        </button>
+                        
+                        <div class="article-reader-controls">
+                            <div style="display: flex; gap: 0.5rem; align-items: center;">
+                                <button onclick="changeFontSize(-1)" style="padding: 0.5rem; border: 1px solid var(--color-border); border-radius: 0.5rem;">A-</button>
+                                <span style="font-size: 0.813rem; color: var(--color-text-muted);">${appState.fontSize}px</span>
+                                <button onclick="changeFontSize(1)" style="padding: 0.5rem; border: 1px solid var(--color-border); border-radius: 0.5rem;">A+</button>
+                            </div>
+                            
+                            <button onclick="toggleTheme()" style="padding: 0.5rem 1rem; border: 1px solid var(--color-border); border-radius: 0.5rem; display: flex; align-items: center; gap: 0.5rem;">
+                                <i class="fas ${appState.darkMode ? 'fa-sun' : 'fa-moon'}"></i>
+                                <span>${appState.darkMode ? 'Light' : 'Dark'}</span>
+                            </button>
+                            
+                            <button onclick="shareArticle()" style="padding: 0.5rem 1rem; background: var(--brand-primary); color: white; border-radius: 0.5rem; display: flex; align-items: center; gap: 0.5rem;">
+                                <i class="fas fa-share-alt"></i> Share
+                            </button>
+                        </div>
+                    </div>
+                    
+                    <article class="article-content fade-up">
+                        <span class="post-badge ${`badge-${post.category}`}" style="background: var(--brand-primary); color: white; margin-bottom: 1rem; display: inline-block;">${getCategoryName(post.category)}</span>
+                        <h1 style="font-size: clamp(1.75rem, 4vw, 2.5rem); margin-bottom: var(--space-md);">${post.title}</h1>
+                        
+                        <div style="display: flex; gap: var(--space-md); align-items: center; color: var(--color-text-muted); margin-bottom: var(--space-xl); flex-wrap: wrap;">
+                            <img src="${post.author_avatar || 'https://asilvainnovations.com/assets/apps/user_1097/app_13212/draft/icon/app_logo.png?1772638774'}" alt="${post.author}" style="width: 32px; height: 32px; border-radius: 50%;">
+                            <span>${post.author}</span>
+                            <span>•</span>
+                            <span>${formatDate(post.publishedAt)}</span>
+                            <span>•</span>
+                            <span>${post.readTime} min read</span>
+                            <span>•</span>
+                            <span>${post.views.toLocaleString()} views</span>
+                        </div>
+                        
+                        <p style="font-style: italic; font-size: 1.125rem; color: var(--color-text-muted); border-left: 4px solid var(--brand-primary); padding-left: 1.5rem; margin-bottom: var(--space-xl);">${post.excerpt}</p>
+                        
+                        <div style="display: flex; gap: 0.5rem; flex-wrap: wrap; margin-bottom: var(--space-xl);">
+                            ${post.tags?.map(tag => `
+                                <span style="background: var(--color-bg-secondary); padding: 0.25rem 0.75rem; border-radius: 9999px; font-size: 0.75rem; color: var(--color-text-muted);">#${tag}</span>
+                            `).join('')}
+                        </div>
+                        
+                        <div class="article-body" style="font-size: ${appState.fontSize}px;">
+                            ${(post.content || []).map(block => renderBlogContentBlock(block)).join('')}
+                        </div>
+                        
+                        {/* Related Posts */}
+                        ${relatedPosts.length > 0 ? `
+                            <div class="related-posts">
+                                <h3 style="font-size: 1.5rem; margin-bottom: var(--space-md);">Related Articles</h3>
+                                <div class="posts-grid" style="grid-template-columns: repeat(3, 1fr); margin-bottom: 0;">
+                                    ${relatedPosts.map(post => renderPostCard(post)).join('')}
+                                </div>
+                            </div>
+                        ` : ''}
+                    </article>
+                </div>
+            `;
+            
+            // Initialize reading progress
+            initReadingProgress();
+        }
+
+        function renderBlogContentBlock(block) {
+            switch(block.type) {
+                case 'paragraph':
+                    return `<p style="margin-bottom: 1.5rem;">${block.text}</p>`;
+                case 'heading':
+                    return `<h2 style="font-size: 1.75rem; margin-top: 2.5rem; margin-bottom: 1rem;">${block.text}</h2>`;
+                case 'quote':
+                    return `<blockquote style="border-left: 4px solid var(--brand-primary); padding-left: 1.5rem; margin: 2rem 0; font-style: italic; color: var(--color-text-muted); font-size: 1.125rem; line-height: 1.75;">"${block.text}"</blockquote>`;
+                case 'image':
+                    return `<figure style="margin: 2.5rem 0;"><img src="${block.url}" alt="${block.alt || ''}" style="width: 100%; border-radius: 0.5rem; box-shadow: var(--shadow-md);"><figcaption style="text-align: center; font-size: 0.875rem; color: var(--color-text-muted); margin-top: 0.5rem;">${block.caption || ''}</figcaption></figure>`;
+                case 'video':
+                    return `<div style="position: relative; padding-bottom: 56.25%; height: 0; margin: 2.5rem 0; border-radius: 0.5rem; overflow: hidden;"><iframe src="${block.url}" frameborder="0" allowfullscreen style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;"></iframe></div>`;
+                default:
+                    return '';
+            }
+        }
+
+        function renderAdminDashboard(container) {
+            appState.isAdmin = true;
+            container.innerHTML = `
+                <div class="admin-layout">
+                    ${renderAdminSidebar()}
+                    
+                    <div class="admin-main">
+                        ${renderAdminHeader()}
+                        
+                        <div class="admin-panel">
+                            ${renderAdminContent()}
+                        </div>
+                    </div>
+                </div>
+            `;
+            
+            if (appState.activeTab === 'analytics') {
+                initCharts();
+            }
+        }
+
+        function renderAdminSidebar() {
+            const navItems = [
+                { id: 'dashboard', icon: 'fa-home', label: 'Dashboard' },
+                { id: 'posts', icon: 'fa-newspaper', label: 'All Posts' },
+                { id: 'editor', icon: 'fa-edit', label: 'New Post' },
+                { id: 'analytics', icon: 'fa-chart-line', label: 'Analytics' },
+                { id: 'seo', icon: 'fa-search', label: 'SEO & Schema' },
+                { id: 'newsletter', icon: 'fa-envelope', label: 'Newsletter' },
+                { id: 'users', icon: 'fa-users', label: 'User Roles' },
+                { id: 'comments', icon: 'fa-comments', label: 'Comments' },
+                { id: 'settings', icon: 'fa-cog', label: 'Settings' }
+            ];
+            
+            return `
+                <aside class="admin-sidebar">
+                    <div style="padding: 1rem; border-bottom: 1px solid rgba(255,255,255,.1);">
+                        <div style="display: flex; align-items: center; gap: 0.75rem;">
+                            <div class="logo-circle">
+                                <div class="logo-circle-inner">
+                                    <img src="https://asilvainnovations.com/assets/apps/user_1097/app_13212/draft/icon/app_logo.png?1772638774" alt="Logo">
+                                </div>
+                            </div>
+                            <div>
+                                <div class="logo-title condensed" style="color: white;">ASilva</div>
+                                <div style="font-size: 0.625rem; color: rgba(255,255,255,.5); letter-spacing: 0.1em; text-transform: uppercase;">Admin Console</div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <nav style="flex: 1; overflow-y: auto;">
+                        ${navItems.map(item => `
+                            <button onclick="switchAdminTab('${item.id}')" 
+                                class="admin-nav-item ${appState.activeTab === item.id ? 'active' : ''}">
+                                <i class="fas ${item.icon}"></i>
+                                <span>${item.label}</span>
+                            </button>
+                        `).join('')}
+                    </nav>
+                    
+                    <div style="padding: 1rem; border-top: 1px solid rgba(255,255,255,.1);">
+                        <button onclick="goHome()" class="admin-nav-item" style="justify-content: center;">
+                            <i class="fas fa-external-link-alt"></i>
+                            <span>View Public Site</span>
+                        </button>
+                        <button onclick="logout()" class="admin-nav-item" style="justify-content: center; color: #e53e3e; margin-top: 0.5rem;">
+                            <i class="fas fa-sign-out-alt"></i>
+                            <span>Logout</span>
+                        </button>
+                    </div>
+                </aside>
+            `;
+        }
+
+        function renderAdminHeader() {
+            const tabs = {
+                dashboard: 'Dashboard',
+                posts: 'Manage Posts',
+                editor: 'Create Post',
+                analytics: 'Analytics Overview',
+                seo: 'SEO & Schema Markup',
+                newsletter: 'Newsletter Management',
+                users: 'User Roles & Permissions',
+                comments: 'Comment Moderation',
+                settings: 'Platform Settings'
+            };
+            
+            return `
+                <header class="admin-header">
+                    <h2 style="font-size: 1.5rem; font-weight: 700;">${tabs[appState.activeTab] || 'Dashboard'}</h2>
+                    <div style="display: flex; gap: 0.75rem; align-items: center;">
+                        <button onclick="toggleTheme()" class="admin-nav-item" style="padding: 0.5rem 1rem;">
+                            <i class="fas ${appState.darkMode ? 'fa-sun' : 'fa-moon'}"></i>
+                        </button>
+                        ${appState.activeTab === 'editor' || appState.activeTab === 'posts' ? `
+                            <button onclick="switchAdminTab('editor')" class="btn-primary" style="padding: 0.5rem 1rem;">
+                                <i class="fas fa-plus"></i> New Post
+                            </button>
+                        ` : ''}
+                    </div>
+                </header>
+            `;
+        }
+
+        function renderAdminContent() {
+            switch(appState.activeTab) {
+                case 'dashboard': return renderAdminDashboardTab();
+                case 'posts': return renderPostsManager();
+                case 'editor': return renderBlockEditor();
+                case 'analytics': return renderAnalyticsTab();
+                case 'seo': return renderSEOPanel();
+                case 'newsletter': return renderNewsletterTab();
+                case 'users': return renderUsersPanel();
+                case 'comments': return renderCommentsTab();
+                case 'settings': return renderSettingsPanel();
+                default: return renderAdminDashboardTab();
+            }
+        }
+
+        function renderAdminDashboardTab() {
+            const publishedCount = POSTS_DATA.filter(p => p.status === 'published').length;
+            
+            return `
+                <div class="fade-up">
+                    <div class="stats-grid">
+                        <div class="stat-card">
+                            <div class="stat-value">${ANALYTICS_DATA.summary.totalViews.toLocaleString()}</div>
+                            <div class="stat-label">Total Views</div>
+                            <div class="stat-trend"><i class="fas fa-arrow-up"></i> +28% this month</div>
+                        </div>
+                        <div class="stat-card">
+                            <div class="stat-value">${ANALYTICS_DATA.summary.subscribers.toLocaleString()}</div>
+                            <div class="stat-label">Subscribers</div>
+                            <div class="stat-trend"><i class="fas fa-arrow-up"></i> +127 new today</div>
+                        </div>
+                        <div class="stat-card">
+                            <div class="stat-value">${publishedCount}</div>
+                            <div class="stat-label">Published Posts</div>
+                            <div class="stat-trend"><i class="fas fa-check-circle"></i> All active</div>
+                        </div>
+                        <div class="stat-card">
+                            <div class="stat-value">${ANALYTICS_DATA.summary.avgReadTime}</div>
+                            <div class="stat-label">Avg. Read Time</div>
+                            <div class="stat-trend"><i class="fas fa-arrow-up"></i> +4% vs last month</div>
+                        </div>
+                    </div>
+                    
+                    <div style="background: var(--color-surface); border-radius: 0.75rem; padding: 1.5rem; border: 1px solid var(--color-border); margin-bottom: 1.5rem;">
+                        <canvas id="trafficChart" style="height: 300px;"></canvas>
+                    </div>
+                    
+                    <div style="display: grid; grid-template-columns: 2fr 1fr; gap: 1.5rem;">
+                        <div class="table-container">
+                            <table class="data-table">
+                                <thead>
+                                    <tr>
+                                        <th>Post Title</th>
+                                        <th>Category</th>
+                                        <th>Views</th>
+                                        <th>Status</th>
+                                        <th>Date</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    ${POSTS_DATA.slice(0, 5).map(post => `
+                                        <tr onclick="editPost(${post.id})" style="cursor: pointer;">
+                                            <td>${post.title.substring(0, 50)}${post.title.length > 50 ? '...' : ''}</td>
+                                            <td>${getCategoryName(post.category)}</td>
+                                            <td>${post.views.toLocaleString()}</td>
+                                            <td><span style="background: ${post.status === 'published' ? '#E8F5EE' : '#FDF0D5'}; padding: 0.25rem 0.75rem; border-radius: 9999px; font-size: 0.75rem; font-weight: 600;">${post.status}</span></td>
+                                            <td>${formatDate(post.publishedAt)}</td>
+                                        </tr>
+                                    `).join('')}
+                                </tbody>
+                            </table>
+                        </div>
+                        
+                        <div class="table-container">
+                            <h4 style="font-weight: 700; margin-bottom: 1rem;">Quick Actions</h4>
+                            ${['Create New Post', 'Review Comments', 'Check Analytics', 'Update SEO'].map((action, i) => `
+                                <button style="width: 100%; padding: 0.75rem; margin-bottom: 0.5rem; border: 1px solid var(--color-border); border-radius: 0.5rem; background: var(--color-bg-secondary); text-align: left; display: flex; align-items: center; gap: 0.5rem; transition: all var(--transition-fast);" onclick="${['switchAdminTab(\'editor\')', 'switchAdminTab(\'comments\')', 'switchAdminTab(\'analytics\')', 'switchAdminTab(\'seo\')'][i]}">
+                                    <i class="fas ${['fa-plus', 'fa-comment', 'fa-chart-line', 'fa-search'][i]}"></i>
+                                    <span>${action}</span>
+                                </button>
+                            `).join('')}
+                        </div>
+                    </div>
+                </div>
+            `;
+        }
+
+        function renderPostsManager() {
+            const filters = ['all', 'published', 'draft'];
+            
+            return `
+                <div class="fade-up">
+                    <div style="display: flex; gap: 0.75rem; margin-bottom: 1.5rem; flex-wrap: wrap;">
+                        ${filters.map(filter => `
+                            <button onclick="filterPosts('${filter}')" 
+                                class="${appState.postsFilter === filter ? 'active' : ''}"
+                                style="padding: 0.5rem 1rem; border: 1px solid var(--color-border); border-radius: 0.5rem; font-size: 0.875rem; background: ${appState.postsFilter === filter ? '#2D6A4F' : 'var(--color-bg-secondary)'}; color: ${appState.postsFilter === filter ? 'white' : 'var(--color-text-muted)'};">
+                                ${filter.charAt(0).toUpperCase() + filter.slice(1)} (${POSTS_DATA.filter(p => filter === 'all' ? true : p.status === filter).length})
+                            </button>
+                        `).join('')}
+                        
+                        <input type="text" placeholder="Search posts..." oninput="searchPosts(this.value)" style="padding: 0.5rem 1rem; border: 1px solid var(--color-border); border-radius: 0.5rem; flex: 1; max-width: 300px;">
+                    </div>
+                    
+                    <div class="table-container">
+                        <table class="data-table">
+                            <thead>
+                                <tr>
+                                    <th>Title</th>
+                                    <th>Category</th>
+                                    <th>Tags</th>
+                                    <th>Views</th>
+                                    <th>Status</th>
+                                    <th>Published</th>
+                                    <th>Actions</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                ${filterPosts(POSTS_DATA).map(post => `
+                                    <tr>
+                                        <td>
+                                            <strong>${post.title}</strong><br>
+                                            <small style="color: var(--color-text-muted);">/${post.slug}</small>
+                                        </td>
+                                        <td><span class="badge badge-${post.category}" style="padding: 0.25rem 0.75rem; border-radius: 9999px; font-size: 0.75rem;">${getCategoryName(post.category)}</span></td>
+                                        <td>${(post.tags || []).slice(0, 2).map(t => `<span style="background: var(--color-bg-secondary); padding: 0.125rem 0.5rem; border-radius: 9999px; font-size: 0.75rem; margin-right: 0.25rem;">#${t}</span>`).join('')}</td>
+                                        <td>${post.views.toLocaleString()}</td>
+                                        <td><span style="background: ${post.status === 'published' ? '#E8F5EE' : '#FDF0D5'}; padding: 0.25rem 0.75rem; border-radius: 9999px; font-size: 0.75rem; font-weight: 600;">${post.status}</span></td>
+                                        <td>${formatDate(post.publishedAt)}</td>
+                                        <td>
+                                            <button onclick="editPost(${post.id})" style="padding: 0.375rem; margin-right: 0.5rem;"><i class="fas fa-edit"></i></button>
+                                            <button onclick="deletePost(${post.id})" style="padding: 0.375rem;"><i class="fas fa-trash" style="color: #e53e3e;"></i></button>
+                                        </td>
+                                    </tr>
+                                `).join('')}
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            `;
+        }
+
+        function renderBlockEditor() {
+            return `
+                <div class="fade-up" style="display: grid; grid-template-columns: 1fr 320px; gap: 1.5rem;">
+                    <div>
+                        <div class="block-editor-container">
+                            <div class="editor-toolbar">
+                                <button class="editor-tool-btn" onclick="addBlock('paragraph')">
+                                    <i class="fas fa-paragraph"></i> Paragraph
+                                </button>
+                                <button class="editor-tool-btn" onclick="addBlock('heading')">
+                                    <i class="fas fa-heading"></i> Heading
+                                </button>
+                                <button class="editor-tool-btn" onclick="addBlock('quote')">
+                                    <i class="fas fa-quote-right"></i> Quote
+                                </button>
+                                <button class="editor-tool-btn" onclick="addBlock('image')">
+                                    <i class="fas fa-image"></i> Image
+                                </button>
+                                <button class="editor-tool-btn" onclick="addBlock('video')">
+                                    <i class="fas fa-video"></i> Video
+                                </button>
+                                <button class="editor-tool-btn" onclick="saveDraft()">
+                                    <i class="fas fa-save"></i> Auto-Save (Every 30s)
+                                </button>
+                                <button class="editor-tool-btn active" onclick="previewPost()">
+                                    <i class="fas fa-eye"></i> Preview
+                                </button>
+                                <button class="btn-primary" onclick="publishPost()">
+                                    <i class="fas fa-paper-plane"></i> Publish
+                                </button>
+                            </div>
+                            
+                            <div class="editor-canvas" id="editorCanvas">
+                                <textarea placeholder="Post Title" style="width: 100%; font-size: 1.5rem; font-weight: 700; border: none; outline: none; background: transparent; margin-bottom: 1rem; font-family: var(--font-display);" id="postTitleInput"></textarea>
+                                <textarea placeholder="Slug (auto-generated from title)" style="width: 100%; font-size: 0.875rem; border: 1px solid var(--color-border); border-radius: 0.5rem; padding: 0.5rem; margin-bottom: 1rem; font-family: var(--font-ui);" id="postSlugInput"></textarea>
+                                <textarea placeholder="Excerpt (used in previews and social sharing)" style="width: 100%; font-family: var(--font-body); font-size: 1rem; border: 1px solid var(--color-border); border-radius: 0.5rem; padding: 0.75rem; margin-bottom: 1rem; resize: vertical;" id="postExcerptInput"></textarea>
+                                
+                                <div id="blocksContainer">
+                                    ${renderBlocks([])}
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div>
+                        <div class="table-container" style="padding: 1.5rem;">
+                            <h4 style="font-weight: 700; margin-bottom: 1rem;">Publish Settings</h4>
+                            
+                            <div class="form-group">
+                                <label class="form-label">Status</label>
+                                <select class="form-select" id="postStatus">
+                                    <option value="draft">Draft</option>
+                                    <option value="published">Published</option>
+                                    <option value="scheduled">Scheduled</option>
+                                </select>
+                            </div>
+                            
+                            <div class="form-group" id="scheduleGroup">
+                                <label class="form-label">Schedule Date</label>
+                                <input type="datetime-local" class="form-input" id="postSchedule">
+                            </div>
+                            
+                            <div class="form-group">
+                                <label class="form-label">Category</label>
+                                <select class="form-select" id="postCategory">
+                                    <option value="systems">Systems Innovations</option>
+                                    <option value="growth">Personal Growth</option>
+                                    <option value="resilience">Resilience</option>
+                                    <option value="wellbeing">Well-Being</option>
+                                    <option value="mental">Mental Health</option>
+                                </select>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label class="form-label">Tags (comma-separated)</label>
+                                <input type="text" class="form-input" id="postTags" placeholder="Tag1, Tag2, Tag3">
+                            </div>
+                            
+                            <button class="btn-primary" style="width: 100%; margin-bottom: 0.75rem;" onclick="saveAndPublish()">
+                                <i class="fas fa-check"></i> Publish Now
+                            </button>
+                            <button style="width: 100%; padding: 0.75rem; border: 1px solid var(--color-border); border-radius: 0.5rem; margin-bottom: 0.75rem;" onclick="schedulePost()">
+                                <i class="fas fa-calendar"></i> Schedule
+                            </button>
+                            
+                            <hr style="margin: 1.5rem 0; border: none; border-top: 1px solid var(--color-border);">
+                            
+                            <h4 style="font-weight: 700; margin-bottom: 1rem;">Version History</h4>
+                            <div style="max-height: 200px; overflow-y: auto;">
+                                ${VERSION_HISTORY.map((v, i) => `
+                                    <div style="padding: 0.75rem; border-bottom: 1px solid var(--color-border); cursor: pointer; font-size: 0.875rem;" onclick="restoreVersion(${v.id})">
+                                        <div style="font-weight: 600;">${formatDate(v.timestamp)}</div>
+                                        <div style="font-size: 0.75rem; color: var(--color-text-muted);">${v.changes}</div>
+                                        <div style="font-size: 0.75rem; color: var(--color-text-muted); margin-top: 0.25rem;">"${v.notes}"</div>
+                                    </div>
+                                `).join('')}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            `;
+        }
+
+        function renderAnalyticsTab() {
+            return `
+                <div class="fade-up">
+                    <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1.5rem;">
+                        <div>
+                            <h3 style="font-weight: 700; margin-bottom: 0.5rem;">Analytics Overview</h3>
+                            <p style="color: var(--color-text-muted); font-size: 0.875rem;">Track performance and engagement metrics</p>
+                        </div>
+                        <select class="form-select" style="width: auto;" onchange="updateAnalyticsPeriod(this.value)">
+                            <option value="7d">Last 7 Days</option>
+                            <option value="30d" selected>Last 30 Days</option>
+                            <option value="90d">Last 90 Days</option>
+                            <option value="year">This Year</option>
+                        </select>
+                    </div>
+                    
+                    <div class="stats-grid">
+                        <div class="stat-card">
+                            <div class="stat-value">${ANALYTICS_DATA.summary.totalViews.toLocaleString()}</div>
+                            <div class="stat-label">Page Views</div>
+                            <div class="stat-trend"><i class="fas fa-arrow-up"></i> +28% vs last period</div>
+                        </div>
+                        <div class="stat-card">
+                            <div class="stat-value">${ANALYTICS_DATA.summary.uniqueVisitors.toLocaleString()}</div>
+                            <div class="stat-label">Unique Visitors</div>
+                            <div class="stat-trend"><i class="fas fa-arrow-up"></i> +22% vs last period</div>
+                        </div>
+                        <div class="stat-card">
+                            <div class="stat-value">${ANALYTICS_DATA.summary.conversionRate}</div>
+                            <div class="stat-label">Conversion Rate</div>
+                            <div class="stat-trend"><i class="fas fa-arrow-up"></i> +0.8% vs last period</div>
+                        </div>
+                        <div class="stat-card">
+                            <div class="stat-value">${ANALYTICS_DATA.summary.avgReadTime}</div>
+                            <div class="stat-label">Avg. Read Time</div>
+                            <div class="stat-trend"><i class="fas fa-arrow-up"></i> +12% vs last period</div>
+                        </div>
+                    </div>
+                    
+                    <div class="table-container" style="padding: 1.5rem; margin-bottom: 1.5rem;">
+                        <canvas id="analyticsChart" style="height: 400px;"></canvas>
+                    </div>
+                    
+                    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem;">
+                        <div class="table-container" style="padding: 1.5rem;">
+                            <h4 style="font-weight: 700; margin-bottom: 1rem;">Traffic Sources</h4>
+                            ${ANALYTICS_DATA.trafficSources.map(source => `
+                                <div style="margin-bottom: 1rem;">
+                                    <div style="display: flex; justify-content: space-between; margin-bottom: 0.5rem; font-size: 0.875rem;">
+                                        <span>${source.source}</span>
+                                        <strong>${source.pct}%</strong>
+                                    </div>
+                                    <div style="background: var(--color-bg-secondary); border-radius: 9999px; height: 0.5rem; overflow: hidden;">
+                                        <div style="background: ${source.color}; height: 100%; width: ${source.pct}%;"></div>
+                                    </div>
+                                </div>
+                            `).join('')}
+                        </div>
+                        
+                        <div class="table-container" style="padding: 1.5rem;">
+                            <h4 style="font-weight: 700; margin-bottom: 1rem;">Top Performing Posts</h4>
+                            ${POSTS_DATA.sort((a, b) => b.views - a.views).slice(0, 5).map((post, i) => `
+                                <div style="display: flex; align-items: center; gap: 1rem; padding: 0.75rem; border-bottom: 1px solid var(--color-border);">
+                                    <div style="font-weight: 800; font-size: 1.25rem; color: var(--color-border); width: 1.5rem;">${i + 1}</div>
+                                    <div style="flex: 1;">
+                                        <div style="font-weight: 600; font-size: 0.875rem; margin-bottom: 0.25rem;">${post.title}</div>
+                                        <span class="badge badge-${post.category}" style="font-size: 0.688rem;">${getCategoryName(post.category)}</span>
+                                    </div>
+                                    <div style="font-weight: 700; font-size: 0.875rem; color: var(--brand-primary);">${post.views.toLocaleString()}</div>
+                                </div>
+                            `).join('')}
+                        </div>
+                    </div>
+                </div>
+            `;
+        }
+
+        function renderNewsletterTab() {
+            const campaigns = [
+                { name: "Weekly Digest #24", date: "Mar 18, 2025", sent: 2714, opens: 68, clicks: 22, status: "sent" },
+                { name: "Post-Traumatic Growth Deep Dive", date: "Mar 11, 2025", sent: 2650, opens: 72, clicks: 31, status: "sent" },
+                { name: "April Growth Sprint", date: "Apr 1, 2025", sent: null, opens: null, clicks: null, status: "scheduled" },
+            ];
+            
+            return `
+                <div class="fade-up">
+                    <div class="stats-grid">
+                        <div class="stat-card">
+                            <div class="stat-value">${SUBSCRIBERS.length}</div>
+                            <div class="stat-label">Total Subscribers</div>
+                            <div class="stat-trend"><i class="fas fa-arrow-up"></i> +127 this month</div>
+                        </div>
+                        <div class="stat-card">
+                            <div class="stat-value">68.4%</div>
+                            <div class="stat-label">Average Open Rate</div>
+                            <div class="stat-trend"><i class="fas fa-arrow-up"></i> +3% vs industry avg</div>
+                        </div>
+                        <div class="stat-card">
+                            <div class="stat-value">22.1%</div>
+                            <div class="stat-label">Click Rate</div>
+                            <div class="stat-trend"><i class="fas fa-check-circle"></i> 4× industry average</div>
+                        </div>
+                    </div>
+                    
+                    <div class="table-container" style="margin-bottom: 1.5rem;">
+                        <div style="display: flex; justify-content: space-between; margin-bottom: 1rem;">
+                            <h4 style="font-weight: 700;">Recent Campaigns</h4>
+                            <button class="btn-primary" style="padding: 0.5rem 1rem; font-size: 0.875rem;">
+                                <i class="fas fa-plus"></i> Create Campaign
+                            </button>
+                        </div>
+                        
+                        <table class="data-table">
+                            <thead>
+                                <tr>
+                                    <th>Campaign</th>
+                                    <th>Sent Date</th>
+                                    <th>Sent</th>
+                                    <th>Opens</th>
+                                    <th>Clicks</th>
+                                    <th>Status</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                ${campaigns.map(campaign => `
+                                    <tr>
+                                        <td>${campaign.name}</td>
+                                        <td>${campaign.date}</td>
+                                        <td>${campaign.sent?.toLocaleString() || '-'}</td>
+                                        <td style="font-weight: 600; color: var(--brand-primary);">${campaign.opens ? `${campaign.opens}%` : '-'}</td>
+                                        <td style="font-weight: 600; color: var(--color-warning);">${campaign.clicks ? `${campaign.clicks}%` : '-'}</td>
+                                        <td><span style="background: ${campaign.status === 'sent' ? '#E8F5EE' : '#FDF0D5'}; padding: 0.25rem 0.75rem; border-radius: 9999px; font-size: 0.75rem;">${campaign.status}</span></td>
+                                    </tr>
+                                `).join('')}
+                            </tbody>
+                        </table>
+                    </div>
+                    
+                    <div class="table-container" style="padding: 1.5rem;">
+                        <h4 style="font-weight: 700; margin-bottom: 1rem;">Subscriber List</h4>
+                        <table class="data-table">
+                            <thead>
+                                <tr>
+                                    <th>Email</th>
+                                    <th>Subscribed</th>
+                                    <th>Status</th>
+                                    <th>Source</th>
+                                    <th>Actions</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                ${SUBSCRIBERS.slice(0, 10).map(sub => `
+                                    <tr>
+                                        <td>${sub.email}</td>
+                                        <td>${formatDate(sub.subscribedAt)}</td>
+                                        <td><span style="background: ${sub.status === 'active' ? '#E8F5EE' : sub.status === 'pending' ? '#FDF0D5' : '#FED7D7'}; padding: 0.25rem 0.75rem; border-radius: 9999px; font-size: 0.75rem;">${sub.status}</span></td>
+                                        <td>${sub.source.replace('_', ' ')}</td>
+                                        <td>
+                                            <button onclick="removeSubscriber(${sub.id})" style="padding: 0.375rem;"><i class="fas fa-trash" style="color: #e53e3e;"></i></button>
+                                            <button onclick="sendToSubscriber('${sub.email}')" style="padding: 0.375rem;"><i class="fas fa-envelope"></i></button>
+                                        </td>
+                                    </tr>
+                                `).join('')}
+                            </tbody>
+                        </table>
+                        <button style="margin-top: 1rem; padding: 0.75rem; border: 1px solid var(--color-border); border-radius: 0.5rem; background: var(--color-bg-secondary); width: 100%;">Export Subscriber List</button>
+                    </div>
+                </div>
+            `;
+        }
+
+        function renderUsersPanel() {
+            const roles = [
+                { name: 'Administrator', desc: 'Full access — all settings, all content, all users', color: '#1B4332' },
+                { name: 'Editor', desc: 'Publish, edit, and delete any post or page', color: '#2D6A4F' },
+                { name: 'Author', desc: 'Publish and manage their own posts only', color: '#40916C' },
+                { name: 'Contributor', desc: 'Write posts, but require approval to publish', color: '#D4921E' }
+            ];
+            
+            return `
+                <div class="fade-up" style="display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem;">
+                    <div>
+                        <div class="table-container" style="padding: 1.5rem;">
+                            <div style="display: flex; justify-content: space-between; margin-bottom: 1rem;">
+                                <h4 style="font-weight: 700;">Team Members</h4>
+                                <button class="btn-primary" style="padding: 0.5rem 1rem;">
+                                    <i class="fas fa-user-plus"></i> Invite User
+                                </button>
+                            </div>
+                            
+                            ${USERS.map(user => `
+                                <div style="display: flex; align-items: center; gap: 1rem; padding: 1rem 0; border-bottom: 1px solid var(--color-border);">
+                                    <img src="${user.avatar}" alt="${user.name}" style="width: 40px; height: 40px; border-radius: 50%;">
+                                    <div style="flex: 1;">
+                                        <div style="font-weight: 600;">${user.name}</div>
+                                        <div style="font-size: 0.875rem; color: var(--color-text-muted);">${user.email}</div>
+                                    </div>
+                                    <select class="form-select" style="width: auto; margin-right: 0.5rem;" onchange="updateUserRole(${user.id}, this.value)">
+                                        ${roles.map(role => `
+                                            <option value="${role.name}" ${user.role === role.name ? 'selected' : ''}>${role.name}</option>
+                                        `).join('')}
+                                    </select>
+                                    <span style="background: ${user.status === 'active' ? '#E8F5EE' : '#FDF0D5'}; padding: 0.25rem 0.75rem; border-radius: 9999px; font-size: 0.75rem;">${user.status}</span>
+                                </div>
+                            `).join('')}
+                        </div>
+                    </div>
+                    
+                    <div>
+                        <div class="table-container" style="padding: 1.5rem;">
+                            <h4 style="font-weight: 700; margin-bottom: 1rem;">Role Permissions</h4>
+                            ${roles.map(role => `
+                                <div style="padding: 1rem 0; border-bottom: 1px solid var(--color-border);">
+                                    <div style="font-weight: 700; color: ${role.color}; margin-bottom: 0.5rem;">${role.name}</div>
+                                    <div style="font-size: 0.875rem; color: var(--color-text-muted); line-height: 1.5;">${role.desc}</div>
+                                </div>
+                            `).join('')}
+                        </div>
+                        
+                        <div class="table-container" style="padding: 1.5rem; margin-top: 1.5rem;">
+                            <h4 style="font-weight: 700; margin-bottom: 1rem;">Security Settings</h4>
+                            ${[
+                                { label: 'Two-Factor Authentication', status: 'Available' },
+                                { label: 'Password Policy', status: 'Enforced' },
+                                { label: 'Session Timeout', status: '30 minutes' },
+                                { label: 'Login Attempts Limit', status: '5 attempts' },
+                                { label: 'IP Whitelist', status: 'Not configured' },
+                            ].map(setting => `
+                                <div style="display: flex; justify-content: space-between; padding: 0.75rem 0; border-bottom: 1px solid var(--color-border);">
+                                    <span style="font-size: 0.875rem;">${setting.label}</span>
+                                    <span style="font-weight: 600; font-size: 0.875rem;">${setting.status}</span>
+                                </div>
+                            `).join('')}
+                        </div>
+                    </div>
+                </div>
+            `;
+        }
+
+        function renderCommentsTab() {
+            return `
+                <div class="fade-up">
+                    <div style="display: flex; gap: 0.75rem; margin-bottom: 1.5rem;">
+                        <button class="btn-primary" style="padding: 0.5rem 1rem;">All Comments</button>
+                        <button style="padding: 0.5rem 1rem; border: 1px solid var(--color-border); border-radius: 0.5rem; background: var(--color-bg-secondary);">Approved (${COMMENTS_DATA.filter(c => c.status === 'approved').length})</button>
+                        <button style="padding: 0.5rem 1rem; border: 1px solid var(--color-border); border-radius: 0.5rem; background: var(--color-bg-secondary);">Pending (${COMMENTS_DATA.filter(c => c.status === 'pending').length})</button>
+                        <button style="padding: 0.5rem 1rem; border: 1px solid var(--color-border); border-radius: 0.5rem; background: var(--color-bg-secondary);">Spam (${COMMENTS_DATA.filter(c => c.status === 'spam').length})</button>
+                    </div>
+                    
+                    <div class="table-container">
+                        <table class="data-table">
+                            <thead>
+                                <tr>
+                                    <th>Comment</th>
+                                    <th>Author</th>
+                                    <th>Post</th>
+                                    <th>Date</th>
+                                    <th>Likes</th>
+                                    <th>Status</th>
+                                    <th>Actions</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                ${COMMENTS_DATA.map(comment => `
+                                    <tr>
+                                        <td>
+                                            <div style="max-width: 300px;">"${comment.text}"</div>
+                                            <small style="color: var(--color-text-muted);">Reply pending...</small>
+                                        </td>
+                                        <td>
+                                            <div>${comment.author}</div>
+                                            <small style="color: var(--color-text-muted);">${comment.email}</small>
+                                        </td>
+                                        <td>
+                                            <a href="#" onclick="viewPost(${comment.postId})" style="color: var(--brand-primary);">${POSTS_DATA.find(p => p.id === comment.postId)?.title.substring(0, 40)}...</a>
+                                        </td>
+                                        <td>${formatRelativeTime(comment.date)}</td>
+                                        <td>
+                                            <button style="padding: 0.375rem;"><i class="far fa-heart"></i> ${comment.likes}</button>
+                                        </td>
+                                        <td><span style="background: ${comment.status === 'approved' ? '#E8F5EE' : comment.status === 'pending' ? '#FDF0D5' : '#FED7D7'}; padding: 0.25rem 0.75rem; border-radius: 9999px; font-size: 0.75rem;">${comment.status}</span></td>
+                                        <td>
+                                            ${comment.status === 'pending' ? `
+                                                <button onclick="moderateComment(${comment.id}, 'approve')" style="padding: 0.375rem; margin-right: 0.5rem;"><i class="fas fa-check" style="color: var(--brand-primary);"></i></button>
+                                                <button onclick="moderateComment(${comment.id}, 'reject')" style="padding: 0.375rem; margin-right: 0.5rem;"><i class="fas fa-times" style="color: #e53e3e;"></i></button>
+                                                <button onclick="moderateComment(${comment.id}, 'spam')" style="padding: 0.375rem;"><i class="fas fa-flag" style="color: var(--color-warning);"></i></button>
+                                            ` : ''}
+                                            ${comment.status === 'approved' ? `
+                                                <button onclick="moderateComment(${comment.id}, 'pending')" style="padding: 0.375rem; margin-right: 0.5rem;"><i class="fas fa-pause" style="color: var(--color-warning);"></i></button>
+                                                <button onclick="moderateComment(${comment.id}, 'spam')" style="padding: 0.375rem;"><i class="fas fa-ban" style="color: #e53e3e;"></i></button>
+                                            ` : ''}
+                                            <button onclick="deleteComment(${comment.id})" style="padding: 0.375rem;"><i class="fas fa-trash" style="color: #e53e3e;"></i></button>
+                                        </td>
+                                    </tr>
+                                `).join('')}
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            `;
+        }
+
+        function renderSettingsPanel() {
+            return `
+                <div class="fade-up" style="display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem;">
+                    <div class="table-container" style="padding: 1.5rem;">
+                        <h4 style="font-weight: 700; margin-bottom: 1rem;">General Settings</h4>
+                        <div class="form-group">
+                            <label class="form-label">Site Name</label>
+                            <input type="text" class="form-input" value="ASilva Innovations">
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label">Site URL</label>
+                            <input type="url" class="form-input" value="https://asilvainnovations.com">
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label">Meta Description</label>
+                            <textarea class="form-textarea" rows="3">Enterprise-grade insights on systems thinking, personal growth, resilience, and mental well-being.</textarea>
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label">Google Analytics ID</label>
+                            <input type="text" class="form-input" value="G-XXXXXXXXXX">
+                        </div>
+                        <button class="btn-primary" style="margin-top: 1rem;">Save Settings</button>
+                    </div>
+                    
+                    <div class="table-container" style="padding: 1.5rem;">
+                        <h4 style="font-weight: 700; margin-bottom: 1rem;">System Status</h4>
+                        ${[
+                            { label: 'SSL Certificate', status: '✅ Active', note: 'Valid until Dec 2025' },
+                            { label: 'Cache Control', status: '✅ Enabled', note: 'Static assets cached' },
+                            { label: 'Image Optimization', status: '✅ Active', note: 'Auto-WebP conversion' },
+                            { label: 'XML Sitemap', status: '✅ Auto-update', note: 'Last updated: Today' },
+                            { label: 'Robots.txt', status: '✅ Configured', note: 'Custom rules active' },
+                            { label: 'CDN', status: '✅ Active', note: 'Global edge delivery' },
+                        ].map(setting => `
+                            <div style="display: flex; justify-content: space-between; padding: 0.75rem 0; border-bottom: 1px solid var(--color-border);">
+                                <span style="font-size: 0.875rem;">${setting.label}</span>
+                                <div style="text-align: right;">
+                                    <div style="font-weight: 600; font-size: 0.875rem; color: var(--brand-primary);">${setting.status}</div>
+                                    <div style="font-size: 0.75rem; color: var(--color-text-muted);">${setting.note}</div>
+                                </div>
+                            </div>
+                        `).join('')}
+                    </div>
+                    
+                    <div class="table-container" style="padding: 1.5rem;">
+                        <h4 style="font-weight: 700; margin-bottom: 1rem;">Performance Metrics</h4>
+                        ${[
+                            { label: 'Page Load Time', value: '1.2s' },
+                            { label: 'First Contentful Paint', value: '0.8s' },
+                            { label: 'Time to Interactive', value: '2.1s' },
+                            { label: 'Cumulative Layout Shift', value: '0.02' },
+                        ].map(metric => `
+                            <div style="display: flex; justify-content: space-between; padding: 0.75rem 0; border-bottom: 1px solid var(--color-border);">
+                                <span style="font-size: 0.875rem;">${metric.label}</span>
+                                <span style="font-weight: 600; font-size: 0.875rem;">${metric.value}</span>
+                            </div>
+                        `).join('')}
+                        <div style="margin-top: 1rem; padding: 0.75rem; background: #E8F5EE; border-radius: 0.5rem; font-size: 0.875rem; color: var(--brand-primary);">
+                            ✅ All scores passing Core Web Vitals thresholds
+                        </div>
+                    </div>
+                    
+                    <div class="table-container" style="padding: 1.5rem;">
+                        <h4 style="font-weight: 700; margin-bottom: 1rem;">Integrations</h4>
+                        ${[
+                            { name: 'Mailchimp', status: 'Connected', api: '••••••••••••••••' },
+                            { name: 'Beehiiv', status: 'Not Connected', api: '-' },
+                            { name: 'Substack', status: 'Not Connected', api: '-' },
+                        ].map(integration => `
+                            <div style="padding: 0.75rem 0; border-bottom: 1px solid var(--color-border);">
+                                <div style="display: flex; justify-content: space-between; margin-bottom: 0.5rem;">
+                                    <span style="font-weight: 600; font-size: 0.875rem;">${integration.name}</span>
+                                    <span style="color: ${integration.status === 'Connected' ? 'var(--brand-primary)' : 'var(--color-text-muted)'};">${integration.status}</span>
+                                </div>
+                                <div style="font-size: 0.75rem; color: var(--color-text-muted);">API Key: ${integration.api}</div>
+                                <button style="margin-top: 0.5rem; padding: 0.375rem 0.75rem; border: 1px solid var(--color-border); border-radius: 0.375rem; font-size: 0.75rem;">Configure</button>
+                            </div>
+                        `).join('')}
+                    </div>
+                </div>
+            `;
+        }
+
+        function renderAuthModal(container) {
+            container.innerHTML = `
+                <div class="modal-overlay open">
+                    <div class="modal-content">
+                        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1.5rem;">
+                            <h2 style="font-size: 1.5rem; font-weight: 700;">Access Required</h2>
+                            <button onclick="closeAuthModal()" style="padding: 0.5rem;"><i class="fas fa-times" style="font-size: 1.25rem;"></i></button>
+                        </div>
+                        
+                        <div style="margin-bottom: 1.5rem;">
+                            <p style="color: var(--color-text-muted); margin-bottom: 1rem;">Please sign in to continue to the admin dashboard.</p>
+                            <div style="background: #FEF3C7; border: 1px solid #FCD34D; border-radius: 0.5rem; padding: 1rem; margin-bottom: 1.5rem;">
+                                <div style="font-weight: 600; font-size: 0.875rem; margin-bottom: 0.5rem;">Authorized Admin Emails:</div>
+                                <div style="font-size: 0.875rem; color: var(--color-text-muted);">
+                                    • admin@asilvainnovations.com<br>
+                                    • alvin.silva@asilvainnovations.com
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label class="form-label">Email Address</label>
+                            <input type="email" id="authEmail" class="form-input" placeholder="your@email.com" autofocus>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label class="form-label">Password</label>
+                            <input type="password" id="authPassword" class="form-input" placeholder="Enter password">
+                        </div>
+                        
+                        <button class="btn-primary" style="width: 100%;" onclick="handleAuth()">Sign In</button>
+                        
+                        <div style="margin: 1rem 0; text-align: center; color: var(--color-text-muted); font-size: 0.875rem;">or</div>
+                        
+                        <button class="btn-primary" style="width: 100%; background: #4285F4;" onclick="showToast('Google login coming soon!', 'warning')">
+                            <i class="fab fa-google"></i> Continue with Google
+                        </button>
+                    </div>
+                </div>
+            `;
+        }
+
+        function updateNavigation() {
+            const navbar = document.querySelector('.navbar');
+            if (navbar) {
+                if (window.scrollY > 50) {
+                    navbar.classList.add('scrolled');
+                } else {
+                    navbar.classList.remove('scrolled');
+                }
+            }
+        }
+
+        function getCategoryName(categoryId) {
+            const names = {
+                systems: 'Systems Innovations',
+                growth: 'Personal Growth',
+                resilience: 'Resilience',
+                wellbeing: 'Well-Being',
+                mental: 'Mental Health'
+            };
+            return names[categoryId] || categoryId;
+        }
+
+        function filterPosts(posts, filter = 'all') {
+            let result = [...posts];
+            
+            if (filter !== 'all') {
+                result = result.filter(p => p.status === filter);
+            }
+            
+            if (appState.currentCategory !== 'all') {
+                result = result.filter(p => p.category === appState.currentCategory);
+            }
+            
+            if (appState.searchQuery) {
+                const query = appState.searchQuery.toLowerCase();
+                result = result.filter(p => 
+                    p.title.toLowerCase().includes(query) || 
+                    p.excerpt.toLowerCase().includes(query) ||
+                    (p.tags && p.tags.some(t => t.toLowerCase().includes(query)))
+                );
+            }
+            
+            return result;
+        }
+
+        function isAdminAccess() {
+            const currentUserEmail = localStorage.getItem('userEmail') || '';
+            const adminEmails = ['admin@asilvainnovations.com', 'alvin.silva@asilvainnovations.com'];
+            return adminEmails.includes(currentUserEmail);
+        }
+
+        // ============================================
+        // INITIALIZATION
+        // ============================================
+        window.addEventListener('load', function() {
+            setTimeout(() => {
+                document.getElementById('loadingOverlay').classList.add('hidden');
+            }, 1000);
+            
+            renderApp();
+            window.addEventListener('scroll', updateNavigation);
+        });
+
+        // Event Delegation for dynamic elements
+        document.body.addEventListener('click', function(e) {
+            // Close modals when clicking outside
+            if (e.target.closest('.modal-content') === null && e.target.classList.contains('modal-overlay')) {
+                e.target.classList.remove('open');
+            }
+        });
+
+        console.log('ASilva Innovations Blog Platform loaded successfully');
+    </script>
+</body>
+</html>
